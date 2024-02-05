@@ -1,0 +1,60 @@
+categories:
+  - title: 'Release'
+    labels:
+      - 'release'
+  - title: 'Features'
+    labels:
+      - 'feature'
+      - 'enhancement'
+  - title: 'Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bugfix'
+      - 'bug'
+  - title: 'Maintenance'
+    label: 'chore'
+  - title: 'Refactoring'
+    label: 'refactor'
+  - title: 'Documentation'
+    label: 'documentation'
+  - title: 'Dependency update'
+    label: 'dependencies'
+ 
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+ 
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+ 
+template: |
+  $CHANGES
+autolabeler:
+  - label: feature
+    branch:
+      - '/^feat(ure)?[/-].+/'
+  - label: bug
+    branch:
+      - '/^fix[/-].+/'
+  - label: chore
+    branch:
+      - '/^chore[/-].+/'
+  - label: refactor
+    branch:
+      - '/(refactor|refactoring)[/-].+/'
+  - label: documentation
+    branch:
+      - '/doc(umentation)[/-].+/'
+    files:
+      - '*.md'
+  - label: release
+    branch:
+      - '/release[/-].+/'
+  - label: enhancement
+    branch:
+      - '/(enhancement|improve)[/-].+/'
+ 
+  - label: nextjs
+    files:
+      - 'src/**/*'
+      - 'package.json'
+  - label: github
+    files:
+      - '.github/**/*'
